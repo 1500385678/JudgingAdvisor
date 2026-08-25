@@ -1,0 +1,71 @@
+# data/rules · 结构化规则库
+
+> 10 分类 × 结构化 JSON · 由 `scripts/md_to_json.py` 自动生成 · 2026-08-26 起
+
+## 文件清单
+
+| 文件 | 分类 | 源目录 | item 数 |
+|------|------|--------|---------|
+| `personality.json`   | 人格心理学       | `_JudgingPeopleLib/01_人格心理学/` | 8 |
+| `behavior.json`      | 行为观察         | `_JudgingPeopleLib/02_行为观察/`   | 8 |
+| `team_role.json`     | 团队角色         | `_JudgingPeopleLib/03_团队角色/`   | 8 |
+| `interview.json`     | 面试与评估       | `_JudgingPeopleLib/04_面试与评估/` | 7 |
+| `character.json`     | 性格特征识别     | `_JudgingPeopleLib/05_性格特征识别/` | 8 |
+| `leadership.json`    | 领导力评估       | `_JudgingPeopleLib/06_领导力评估/` | 7 |
+| `communication.json` | 沟通风格识别     | `_JudgingPeopleLib/07_沟通风格识别/` | 6 |
+| `eq.json`            | 情商评估         | `_JudgingPeopleLib/08_情商评估/`   | 7 |
+| `talent.json`        | 人才选拔与配置   | `_JudgingPeopleLib/09_人才选拔与配置/` | 7 |
+| `classic.json`       | 识人经典         | `_JudgingPeopleLib/10_识人经典/`   | 8 |
+
+## JSON Schema
+
+每个 JSON 文件结构:
+
+```json
+{
+  "category":      "人格心理学",          // 中文分类名
+  "category_id":   "personality_psychology",  // 英文 ID(稳定)
+  "source":        "/abs/path/to/人格心理学.md",  // 源 md 路径
+  "meta": {                              // md 头部元数据
+    "类型": "知识库 > 识人 > 人格心理学",
+    "适用角色": "HR / 管理者 / 心理咨询师",
+    "更新日期": "2026-05-30",
+    "来源": "人格心理学知识"
+  },
+  "items": [                             // 解析后的结构化条目
+    {
+      "title":   "一、人格基本概念",
+      "content": "### 什么是人格\n\n**定义**:...完整段落...",
+      "tags":    ["大五", "MBTI"]        // 自动从内容抽出的 tag
+    }
+  ],
+  "fallback_used": false,                // 是否触发无结构兜底
+  "generated_at":  "2026-08-26T03:51:12",
+  "item_count":    8
+}
+```
+
+## 标签词典
+
+当前内置 18 个标签(MBTI / 大五 / DISC / 九型 / 依恋 / 微表情 / 声音 /
+面试 / 团队 / 领导力 / 沟通 / 情商 / PUA / NPD / ASPD / 焦虑 / 操控 / 匹配 / 速查)。
+词典维护在 `scripts/md_to_json.py` 顶部 `TAG_DICT`。
+
+## 重新生成
+
+```bash
+cd JudgingPeopleWeb/
+python3 scripts/md_to_json.py                        # 全部 10 分类
+python3 scripts/md_to_json.py --only 01,02,05        # 只跑 01/02/05
+python3 scripts/md_to_json.py --src ../01_人格心理学/人格心理学.md \
+                               --out data/rules/personality.json
+```
+
+幂等:可重复运行,输出覆盖更新。
+
+## 下游用途
+
+- 性格解读页:从 `personality.json` 拉 MBTI/大五/DISC/九型条目
+- 行为信号识别:从 `behavior.json` 拉微表情/声音/情绪条目
+- 风险预警:用 `tags` 字段过滤 PUA/NPD/ASPD/操控/焦虑 相关条目
+- 案例库:在 items 基础上挂 `outcome` 字段,扩展为 cases 表
