@@ -16,6 +16,10 @@
 | `eq.json`            | 情商评估         | `_JudgingPeopleLib/08_情商评估/`   | 7 |
 | `talent.json`        | 人才选拔与配置   | `_JudgingPeopleLib/09_人才选拔与配置/` | 7 |
 | `classic.json`       | 识人经典         | `_JudgingPeopleLib/10_识人经典/`   | 8 |
+| `persona_frameworks.json` | 性格框架规则库 | 手工整理(MBTI 16型/大五/DISC/九型) | 5 |
+
+> **附加工具文件**:`persona_frameworks.json` 不在 `md_to_json.py` 自动生成的 10 分类内,
+> 是 Phase 0 第 2 项手工维护的"4 框架核心特征"基线,结构对齐下方 Schema。
 
 ## JSON Schema
 
