@@ -17,9 +17,11 @@
 | `talent.json`        | 人才选拔与配置   | `_JudgingPeopleLib/09_人才选拔与配置/` | 7 |
 | `classic.json`       | 识人经典         | `_JudgingPeopleLib/10_识人经典/`   | 8 |
 | `persona_frameworks.json` | 性格框架规则库 | 手工整理(MBTI 16型/大五/DISC/九型) | 5 |
+| `signal_rules.json`   | 行为信号规则库  | 手工整理(真诚/撒谎/控制/焦虑/操纵/自恋/攻击/回避/压力 9 类) | 20 |
 
-> **附加工具文件**:`persona_frameworks.json` 不在 `md_to_json.py` 自动生成的 10 分类内,
-> 是 Phase 0 第 2 项手工维护的"4 框架核心特征"基线,结构对齐下方 Schema。
+> **附加工具文件**:`persona_frameworks.json` / `signal_rules.json` 不在 `md_to_json.py` 自动生成的 10 分类内,
+> 是 Phase 0 手工维护的"多框架 + 行为信号"基线,结构对齐下方 Schema。
+> `signal_rules.json` 是 Phase 0 第 3 项基线版(v0.1, 20 条),后续 T1 会扩到 50+。
 
 ## JSON Schema
 

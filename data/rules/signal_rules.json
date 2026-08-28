@@ -1,0 +1,226 @@
+{
+  "category": "行为信号规则库",
+  "category_id": "signal_rules",
+  "source": "手工维护 · 基于张勇 36 行业识人模块 02_行为观察/05_性格特征识别/08_情商评估 综合提取",
+  "meta": {
+    "类型": "知识库 > 识人 > 行为信号",
+    "适用角色": "HR / 销售 / 管理者 / 心理咨询师 / 婚恋",
+    "适用场景": "面试 / 谈判 / 团队观察 / 婚恋初次 / 合伙评估",
+    "更新日期": "2026-08-28",
+    "来源": "行为科学综合基线 v0.1",
+    "适用阶段": "Phase 0 第 3 项基线版"
+  },
+  "categories": [
+    "真诚", "撒谎", "控制", "焦虑", "操纵_PUA", "自恋_NPD", "攻击", "回避", "压力"
+  ],
+  "items": [
+    {
+      "id": "sig_001",
+      "category": "真诚",
+      "pattern": "用「真的/确实/不骗你/我发誓」等强调式前缀",
+      "weight": 0.55,
+      "severity": 2,
+      "context": "text",
+      "description": "频繁使用强调真诚的词可能是补偿性表达,自然对话中正常人不需要反复自证",
+      "advice": "不直接定性,结合其他信号 + 后置行为一致性验证"
+    },
+    {
+      "id": "sig_002",
+      "category": "真诚",
+      "pattern": "细节具体(时间/地点/人物)且与已知事实可对照",
+      "weight": 0.8,
+      "severity": 1,
+      "context": "text",
+      "description": "具体细节是可验证陈述的标志,叙述越具体越倾向于真实经验",
+      "advice": "正向信号,可作为基线;但若细节过于流畅无停顿,反向也可能为预演"
+    },
+    {
+      "id": "sig_003",
+      "category": "真诚",
+      "pattern": "承认局限/不确定(\"我不太确定\"\"可能是这样\")",
+      "weight": 0.7,
+      "severity": 1,
+      "context": "text",
+      "description": "愿意表达不确定是高自信 + 真实的表现,过度自信或全知叙述反而可疑",
+      "advice": "正向信号,识别'全知叙述'反向特征"
+    },
+    {
+      "id": "sig_004",
+      "category": "撒谎",
+      "pattern": "用「基本上/大概/差不多/可能吧」等模糊化副词",
+      "weight": 0.6,
+      "severity": 2,
+      "context": "text",
+      "description": "模糊化是降低承诺成本的常见话术,可能为后续翻话留余地",
+      "advice": "追问具体数字/时间,看是否能落到细节"
+    },
+    {
+      "id": "sig_005",
+      "category": "撒谎",
+      "pattern": "回答与问题错位(答非所问/绕开关键点)",
+      "weight": 0.75,
+      "severity": 3,
+      "context": "text",
+      "description": "刻意绕开敏感点的典型表现,常见于隐藏关键信息",
+      "advice": "不立刻戳破,温柔拉回原问题 2-3 次,看是否仍回避"
+    },
+    {
+      "id": "sig_006",
+      "category": "撒谎",
+      "pattern": "突然补充大量无关细节(信息过载)",
+      "weight": 0.65,
+      "severity": 3,
+      "context": "text",
+      "description": "用冗余信息稀释核心问题,常见于掩饰关键事实",
+      "advice": "礼貌截断「我关心的是 X 这点」,逼回主线"
+    },
+    {
+      "id": "sig_007",
+      "category": "控制",
+      "pattern": "频繁改变约定/单方面重新定义边界",
+      "weight": 0.8,
+      "severity": 4,
+      "context": "behavior",
+      "description": "控制欲的核心是'定义权',不断改规约让对方疲于应对",
+      "advice": "明确书面化关键约定,看对方是否尊重"
+    },
+    {
+      "id": "sig_008",
+      "category": "控制",
+      "pattern": "用「我是为你好/都是因为你」句式归因",
+      "weight": 0.85,
+      "severity": 4,
+      "context": "text",
+      "description": "把控制行为包装成'善意',常见于煤气灯操纵(Gaslighting)前奏",
+      "advice": "拆解因果:具体哪件事是为我好?是对方决定还是共同决定?"
+    },
+    {
+      "id": "sig_009",
+      "category": "焦虑",
+      "pattern": "语速加快 + 句子碎片化 + 反复确认",
+      "weight": 0.7,
+      "severity": 2,
+      "context": "voice",
+      "description": "焦虑状态的典型声学特征,与兴奋区别在于停顿多 + 重复",
+      "advice": "降低节奏,慢问一题,给足思考时间,看是否能稳定"
+    },
+    {
+      "id": "sig_010",
+      "category": "焦虑",
+      "pattern": "回避眼神 + 频繁眨眼 + 摸脸/摸脖子",
+      "weight": 0.75,
+      "severity": 2,
+      "context": "video",
+      "description": "自我安抚动作 + 眼神回避,典型 FACS 不安/隐瞒复合信号",
+      "advice": "缓和气氛,中性话题过渡,观察是否回归放松"
+    },
+    {
+      "id": "sig_011",
+      "category": "操纵_PUA",
+      "pattern": "先贬低再抬高(\"你其实没那么差/其实你最特别\")",
+      "weight": 0.9,
+      "severity": 5,
+      "context": "text",
+      "description": "PUA 经典打压-拉拢循环(Demolish-Rebuild),目的是摧毁自我评估稳定性",
+      "advice": "红旗信号,记录具体话术,寻求第三方视角验证"
+    },
+    {
+      "id": "sig_012",
+      "category": "操纵_PUA",
+      "pattern": "制造嫉妒/比较(\"别人都……你怎么……\")",
+      "weight": 0.8,
+      "severity": 4,
+      "context": "text",
+      "description": "用社会比较施压,常见情感操控手法",
+      "advice": "不要陷入比较框架,直接问「你想让我做的是什么」"
+    },
+    {
+      "id": "sig_013",
+      "category": "自恋_NPD",
+      "pattern": "对话中频繁把话题拉回自己 + 打断他人",
+      "weight": 0.8,
+      "severity": 4,
+      "context": "behavior",
+      "description": "NPD 典型共情缺失 + 自我中心,打断频率 > 30% 是警示",
+      "advice": "观察是否对所有人都如此,是否还有 1-2 个例外(往往是供给者)"
+    },
+    {
+      "id": "sig_014",
+      "category": "自恋_NPD",
+      "pattern": "对赞美高接受 / 对批评高防御(0 或 100)",
+      "weight": 0.85,
+      "severity": 4,
+      "context": "behavior",
+      "description": "NPD 核心特征:夸大的自我感 + 脆弱的自尊,反馈光谱二极化",
+      "advice": "温和提改进建议,看是否能容纳'不完美'叙述"
+    },
+    {
+      "id": "sig_015",
+      "category": "攻击",
+      "pattern": "反问句攻击(\"你什么意思?你凭什么?\")",
+      "weight": 0.75,
+      "severity": 3,
+      "context": "text",
+      "description": "被动攻击或主动攻击的转换点,把问题反弹给对方",
+      "advice": "保持中性陈述,不接反弹,等情绪峰值过去"
+    },
+    {
+      "id": "sig_016",
+      "category": "回避",
+      "pattern": "用「嗯/啊/我回去看看/再说吧」结束关键议题",
+      "weight": 0.7,
+      "severity": 3,
+      "context": "text",
+      "description": "回避型依恋典型话术,关键决策永远'待定'",
+      "advice": "明确 deadline + 单点跟进,看是否会兑现"
+    },
+    {
+      "id": "sig_017",
+      "category": "回避",
+      "pattern": "承诺密度高 + 兑现率低(口头 > 行动 3 倍以上)",
+      "weight": 0.8,
+      "severity": 3,
+      "context": "behavior",
+      "description": "口头承诺是用低成本换取对方信任的操纵手法",
+      "advice": "所有口头承诺书面化 + 设定复核点"
+    },
+    {
+      "id": "sig_018",
+      "category": "压力",
+      "pattern": "突然沉默(>5s) + 呼吸变浅 + 肩颈紧缩",
+      "weight": 0.7,
+      "severity": 2,
+      "context": "video",
+      "description": "压力下的冻结反应(Freeze),与说谎不一定相关,可能是话题敏感",
+      "advice": "暂停该话题,先关心对方状态,降低对抗感"
+    },
+    {
+      "id": "sig_019",
+      "category": "压力",
+      "pattern": "手指敲桌/抖腿/摆弄物品(自我安抚动作)",
+      "weight": 0.6,
+      "severity": 2,
+      "context": "video",
+      "description": "FACS 自我安抚(manipulator)信号,提示当前压力水平",
+      "advice": "判断压力来源:话题/人/环境,针对性减压"
+    },
+    {
+      "id": "sig_020",
+      "category": "撒谎",
+      "pattern": "三句话内出现 2 次以上情绪反转(怒→笑→怒)",
+      "weight": 0.7,
+      "severity": 3,
+      "context": "behavior",
+      "description": "情绪不稳可能为掩饰 + 主动施压试图控制对话节奏",
+      "advice": "记时间线,延后复盘,避免在情绪峰当下做判断"
+    }
+  ],
+  "usage_notes": {
+    "scoring": "weight × severity → 综合强度(0-5); 同一类别累计 ≥ 3 触发风险预警",
+    "context_required": "单一信号不构成结论,需 3+ 同类信号 + 跨场景一致性",
+    "limitation": "本库为基线 v0.1,Phase 0 后续 T1 会持续扩到 50+ 条并补充 voice/video 字段"
+  },
+  "fallback_used": false,
+  "generated_at": "2026-08-28T03:50:00",
+  "item_count": 20
+}
