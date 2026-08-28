@@ -18,10 +18,12 @@
 | `classic.json`       | 识人经典         | `_JudgingPeopleLib/10_识人经典/`   | 8 |
 | `persona_frameworks.json` | 性格框架规则库 | 手工整理(MBTI 16型/大五/DISC/九型) | 5 |
 | `signal_rules.json`   | 行为信号规则库  | 手工整理(真诚/撒谎/控制/焦虑/操纵/自恋/攻击/回避/压力 9 类) | 20 |
+| `career_profiles.json` | 职业画像模板库  | 手工整理(销售/工程师/产品经理/HR/管理者 5 岗位) | 5 |
 
-> **附加工具文件**:`persona_frameworks.json` / `signal_rules.json` 不在 `md_to_json.py` 自动生成的 10 分类内,
-> 是 Phase 0 手工维护的"多框架 + 行为信号"基线,结构对齐下方 Schema。
+> **附加工具文件**:`persona_frameworks.json` / `signal_rules.json` / `career_profiles.json` 不在 `md_to_json.py` 自动生成的 10 分类内,
+> 是 Phase 0 手工维护的"多框架 + 行为信号 + 职业画像"基线,结构对齐下方 Schema。
 > `signal_rules.json` 是 Phase 0 第 3 项基线版(v0.1, 20 条),后续 T1 会扩到 50+。
+> `career_profiles.json` 是 Phase 0 第 4 项基线版(v0.1, 5 岗位),后续 T1 会扩到 20+。
 
 ## JSON Schema
 
