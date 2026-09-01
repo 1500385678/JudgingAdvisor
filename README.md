@@ -10,5 +10,5 @@
 - Gitee: https://gitee.com/architectzy/JudgingAdvisor
 
 ## 自动化
-- T4 每日 02:00 检查项目并更新开发计划
-- T5 每日 03:00 完成小步开发并 commit + push
+- T1 每日 02:50 巡检(读 .Log/ + 写当日 .plan/ + 必要时更新开发计划)
+- T1 每日 03:50 完成小步开发并 commit + push(双 remote: gitee + github)
