@@ -1,0 +1,241 @@
+{
+  "category": "飞书 Bot 意图路由表",
+  "category_id": "bot_intents",
+  "source": "手工维护 · Phase 0 第 7 项基线版 · 基于 5 大模块(性格/行为/职业/风险/决策) + 兜底意图",
+  "meta": {
+    "类型": "知识库 > 识人 > 飞书 Bot 路由",
+    "适用角色": "飞书 Bot · 12-识人 行业对话入口",
+    "适用场景": "用户私聊/群聊 @Bot · 文本消息",
+    "更新日期": "2026-09-06",
+    "来源": "飞书 Bot 接入基线 v0.1",
+    "适用阶段": "Phase 0 第 7 项基线版",
+    "基线条数": 10,
+    "目标条数": "20+",
+    "边界声明": "本路由只做意图分类 + 模块路由,不做人格定性,不做临床诊断,不复现真实个体隐私"
+  },
+  "categories": [
+    "问性格_Persona",
+    "问行为_Signal",
+    "问职业_Career",
+    "问风险_Risk",
+    "问案例_Case",
+    "问决策_Decide",
+    "自查_SelfAssessment",
+    "聊关系_Relationship",
+    "工具调用_ToolUse",
+    "默认兜底_Default"
+  ],
+  "items": [
+    {
+      "id": "intent_001",
+      "intent": "问性格_Persona",
+      "name": "问对方/自己的性格",
+      "trigger_keywords": [
+        "他/她/这个人/对方 是什么性格",
+        "MBTI/大五/DISC/九型",
+        "性格分析/性格解读"
+      ],
+      "example_queries": [
+        "我同事总追求完美,他是什么性格?",
+        "帮我看看这个人的 MBTI",
+        "我老婆是 INTJ 吗?"
+      ],
+      "route_module": "persona_lens",
+      "route_data": "persona_frameworks.json",
+      "priority": 1,
+      "requires_evidence": "用户描述对方具体行为(至少 3 条)",
+      "fallback_hint": "证据不足时反问'能再具体讲一个例子吗?'"
+    },
+    {
+      "id": "intent_002",
+      "intent": "问行为_Signal",
+      "name": "识别对话/行为中的信号",
+      "trigger_keywords": [
+        "他说的/这句话 能信吗",
+        "他在撒谎/在回避/在控制",
+        "微表情/语气/用词"
+      ],
+      "example_queries": [
+        "他刚才那段话是不是在骗我?",
+        "她总是用'我朋友说'来施压,什么意思?",
+        "对方回避我的提问,可能是什么信号?"
+      ],
+      "route_module": "behavior_signal",
+      "route_data": "signal_rules.json",
+      "priority": 1,
+      "requires_evidence": "用户的具体陈述/对话片段原文",
+      "fallback_hint": "贴出具体话术更准"
+    },
+    {
+      "id": "intent_003",
+      "intent": "问职业_Career",
+      "name": "岗位/职业画像与面试辅助",
+      "trigger_keywords": [
+        "销售/工程师/产品/HR 适合什么人",
+        "面试问题/招聘",
+        "岗位画像/胜任力"
+      ],
+      "example_queries": [
+        "销售岗位最看重哪 3 个特质?",
+        "帮我设计几个面试问题验证这个候选人",
+        "技术 leader 需要什么性格?"
+      ],
+      "route_module": "career_profile",
+      "route_data": "career_profiles.json",
+      "priority": 2,
+      "requires_evidence": "目标岗位 + (可选)候选人背景",
+      "fallback_hint": "明确岗位类型更准"
+    },
+    {
+      "id": "intent_004",
+      "intent": "问风险_Risk",
+      "name": "风险/操纵/红旗信号识别",
+      "trigger_keywords": [
+        "PUA/NPD/反社会/煤气灯",
+        "操纵/控制/勒索",
+        "危险人格/红旗"
+      ],
+      "example_queries": [
+        "我对象是不是在 PUA 我?",
+        "合伙人最近总说'你不做就换人',是情感勒索吗?",
+        "面试候选人眼神飘忽,需要警惕什么?"
+      ],
+      "route_module": "risk_flag",
+      "route_data": "risk_flags.json",
+      "priority": 1,
+      "requires_evidence": "对方具体行为/话术 + 发生场景 + 频次",
+      "fallback_hint": "只列信号不贴标签,严守'信号 ≠ 结论'"
+    },
+    {
+      "id": "intent_005",
+      "intent": "问案例_Case",
+      "name": "查询历史案例与处理方法",
+      "trigger_keywords": [
+        "有类似案例吗",
+        "别人怎么处理",
+        "案例库/历史"
+      ],
+      "example_queries": [
+        "婚恋里遇到 NPD 一般怎么走出来?",
+        "合伙人骗局有解套案例吗?",
+        "招聘识人失败有没有复盘?"
+      ],
+      "route_module": "case_lookup",
+      "route_data": "cases.json",
+      "priority": 3,
+      "requires_evidence": "场景 + 痛点",
+      "fallback_hint": "案例仅作参考,不当诊断"
+    },
+    {
+      "id": "intent_006",
+      "intent": "问决策_Decide",
+      "name": "决策辅助(合作/招聘/关系)",
+      "trigger_keywords": [
+        "该不该/要不要",
+        "能合伙吗/能信吗/能合作吗",
+        "帮我判断"
+      ],
+      "example_queries": [
+        "这个人适合做合伙人吗?",
+        "这个 offer 要不要接?",
+        "男朋友值得继续吗?"
+      ],
+      "route_module": "decision_helper",
+      "route_data": "persona_frameworks + signal_rules + risk_flags + cases 联合",
+      "priority": 1,
+      "requires_evidence": "对象 + 决策场景 + 用户最关心的 1-2 个维度",
+      "fallback_hint": "把决策框架(性格 + 行为 + 风险 + 案例)摆给用户,最终拍板权归还"
+    },
+    {
+      "id": "intent_007",
+      "intent": "自查_SelfAssessment",
+      "name": "自我性格/行为/模式自查",
+      "trigger_keywords": [
+        "我是不是/我属于",
+        "我自己/我的性格",
+        "测一测/测评"
+      ],
+      "example_queries": [
+        "我是不是太焦虑了?",
+        "测一下我的 MBTI",
+        "我这种领导风格有什么盲点?"
+      ],
+      "route_module": "self_assessment",
+      "route_data": "persona_frameworks + signal_rules + career_profiles",
+      "priority": 2,
+      "requires_evidence": "用户对自身行为的描述(至少 3-5 条)",
+      "fallback_hint": "引导用户先描述具体场景再贴标签"
+    },
+    {
+      "id": "intent_008",
+      "intent": "聊关系_Relationship",
+      "name": "关系/团队/家庭咨询",
+      "trigger_keywords": [
+        "和家人/伴侣/同事/团队 相处",
+        "关系/团队/家庭",
+        "怎么沟通/怎么相处"
+      ],
+      "example_queries": [
+        "和 NPD 父亲怎么相处?",
+        "团队里有人总消极,怎么办?",
+        "和伴侣总吵架怎么破?"
+      ],
+      "route_module": "relationship_advisor",
+      "route_data": "persona_frameworks + signal_rules + risk_flags + cases 联合",
+      "priority": 2,
+      "requires_evidence": "关系类型 + 核心冲突点 + 对方关键行为",
+      "fallback_hint": "聚焦 1 个具体冲突,不要泛泛而谈"
+    },
+    {
+      "id": "intent_009",
+      "intent": "工具调用_ToolUse",
+      "name": "显式调用识人工具",
+      "trigger_keywords": [
+        "用性格引擎",
+        "跑个信号分析",
+        "查风险库/查案例库"
+      ],
+      "example_queries": [
+        "用行为信号引擎分析这段对话",
+        "从风险库查所有 PUA 条目",
+        "调职业画像模板"
+      ],
+      "route_module": "tool_invocation",
+      "route_data": "对应 data/rules/*.json",
+      "priority": 3,
+      "requires_evidence": "工具名 + 输入数据",
+      "fallback_hint": "直接走对应模块的 default flow"
+    },
+    {
+      "id": "intent_010",
+      "intent": "默认兜底_Default",
+      "name": "闲聊/无法识别/转人工",
+      "trigger_keywords": [
+        "在吗",
+        "你好",
+        "谢谢/好的",
+        "其他未被覆盖的话题"
+      ],
+      "example_queries": [
+        "在吗?",
+        "谢谢",
+        "今天天气不错"
+      ],
+      "route_module": "smalltalk_or_handoff",
+      "route_data": "n/a",
+      "priority": 5,
+      "requires_evidence": "n/a",
+      "fallback_hint": "小回应 + 提示可用场景(性格/行为/职业/风险/决策/案例);连续 2 次无意图命中 → 提示转人工"
+    }
+  ],
+  "usage_notes": {
+    "routing_strategy": "按 priority 1→5 顺序匹配,先匹配 trigger_keywords;若多意图命中则按 priority + 询问澄清",
+    "evidence_requirement": "所有 P1 意图(intent_001/002/004/006)都要求用户给具体行为/话术,不要空对空贴标签",
+    "ethical_boundary": "Bot 不替代专业心理评估/法律意见/医疗诊断,涉及自伤/他伤/家暴一律建议联系专业人员",
+    "data_privacy": "用户输入的对话/行为描述只用于当次路由 + 推理,默认不留存;留存需用户显式同意",
+    "limitation": "本表为基线 v0.1,Phase 1 会扩到 20+ 意图并补充 multi_intent(多意图融合) + 对话状态机"
+  },
+  "fallback_used": false,
+  "generated_at": "2026-09-06T03:50:00",
+  "item_count": 10
+}

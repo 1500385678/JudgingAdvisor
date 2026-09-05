@@ -21,13 +21,15 @@
 | `career_profiles.json` | 职业画像模板库  | 手工整理(销售/工程师/产品经理/HR/管理者 5 岗位) | 5 |
 | `risk_flags.json`    | 风险信号规则库  | 手工整理(PUA/NPD/ASPD/煤气灯/三角操纵/情感勒索/受害者扮演/控制型伴侣 8 类) | 15 |
 | `cases.json`         | 案例库          | 手工整理(面试识人/合伙谈判/婚恋首次/团队招聘/重要决策 5 场景) | 5 |
+| `bot_intents.json`   | 飞书 Bot 意图路由 | 手工整理(性格/行为/职业/风险/案例/决策/自查/关系/工具/兜底 10 意图) | 10 |
 
-> **附加工具文件**:`persona_frameworks.json` / `signal_rules.json` / `career_profiles.json` / `risk_flags.json` / `cases.json` 不在 `md_to_json.py` 自动生成的 10 分类内,
-> 是 Phase 0 手工维护的"多框架 + 行为信号 + 职业画像 + 风险信号 + 案例"基线,结构对齐下方 Schema。
+> **附加工具文件**:`persona_frameworks.json` / `signal_rules.json` / `career_profiles.json` / `risk_flags.json` / `cases.json` / `bot_intents.json` 不在 `md_to_json.py` 自动生成的 10 分类内,
+> 是 Phase 0 手工维护的"多框架 + 行为信号 + 职业画像 + 风险信号 + 案例 + 飞书 Bot 路由"基线,结构对齐下方 Schema。
 > `signal_rules.json` 是 Phase 0 第 3 项基线版(v0.1, 20 条),后续 T1 会扩到 50+。
 > `career_profiles.json` 是 Phase 0 第 4 项基线版(v0.1, 5 岗位),后续 T1 会扩到 20+。
 > `risk_flags.json` 是 Phase 0 第 5 项基线版(v0.1, 15 条 / 8 类),后续 T1 会扩到 50+。
 > `cases.json` 是 Phase 0 第 6 项基线版(v0.1, 5 场景各 1 例),后续 T1 会扩到 20-30 条。
+> `bot_intents.json` 是 Phase 0 第 7 项基线版(v0.1, 10 意图),覆盖 5 大模块 + 决策/自查/关系/工具/兜底,后续 T1 会扩到 20+ 并补 multi_intent 融合。
 
 ## JSON Schema
 
