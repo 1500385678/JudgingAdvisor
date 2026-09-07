@@ -83,3 +83,10 @@ python3 scripts/md_to_json.py --src ../01_人格心理学/人格心理学.md \
 - 行为信号识别:从 `behavior.json` 拉微表情/声音/情绪条目
 - 风险预警:用 `tags` 字段过滤 PUA/NPD/ASPD/操控/焦虑 相关条目
 - 案例库:在 items 基础上挂 `outcome` 字段,扩展为 cases 表
+
+## Schema 集中定义
+
+> 16 JSON 字段命名 / 类型 / 取值范围 / 必填性 集中约定 → [`SCHEMA.md`](./SCHEMA.md)(v0.1, 2026-09-08 建立)
+>
+> 用途:Phase 1 后端导入 PostgreSQL / 前端 TypeScript 类型 / 测试基线校验
+> 触发更新:任意 JSON 字段变更时,本 README + SCHEMA.md 同步改
