@@ -213,14 +213,64 @@
       "context": "behavior",
       "description": "情绪不稳可能为掩饰 + 主动施压试图控制对话节奏",
       "advice": "记时间线,延后复盘,避免在情绪峰当下做判断"
+    },
+    {
+      "id": "sig_021",
+      "category": "攻击",
+      "pattern": "用沉默作为惩罚(冷暴力) + 拒绝沟通",
+      "weight": 0.75,
+      "severity": 3,
+      "context": "behavior",
+      "description": "Stonewalling 是 Gottman 四大破坏性沟通模式之一,通过拒绝回应让对方陷入不确定与自责",
+      "advice": "明确时间限制「我 X 分钟后需要沟通」,不陷入对方节奏"
+    },
+    {
+      "id": "sig_022",
+      "category": "攻击",
+      "pattern": "用威胁/最后通牒式表达(「我受够了/分手/辞职/要不你别要了」)",
+      "weight": 0.85,
+      "severity": 3,
+      "context": "text",
+      "description": "高频最后通牒是情感勒索常用工具,把对方绑在「让步 vs 失去」二选一",
+      "advice": "不接最后通牒的急迫性,延期处理,记录次数与触发场景"
+    },
+    {
+      "id": "sig_023",
+      "category": "控制",
+      "pattern": "经济/社交/时间三维度的边界侵蚀(看手机/过问朋友/安排日程)",
+      "weight": 0.8,
+      "severity": 3,
+      "context": "behavior",
+      "description": "控制型关系常见从「关心」开始,逐步覆盖 3 个维度(经济/社交/时间),任意 1 维持续超 1 个月需警惕",
+      "advice": "明确边界 + 设置检查点,看对方是否能容纳「拒绝」"
+    },
+    {
+      "id": "sig_024",
+      "category": "自恋_NPD",
+      "pattern": "规则双重标准(对他人严/对自己宽,如迟到/承诺/责任)",
+      "weight": 0.75,
+      "severity": 2,
+      "context": "behavior",
+      "description": "NPD 隐性特权感:同一规则用两套标准,别人必须遵守自己可以例外",
+      "advice": "用具体事件对照两套标准,看是否能自洽解释"
+    },
+    {
+      "id": "sig_025",
+      "category": "撒谎",
+      "pattern": "否认反应与刺激严重度不匹配(小事激动/大事平静)",
+      "weight": 0.7,
+      "severity": 2,
+      "context": "behavior",
+      "description": "反常的情绪反应往往预示刺激触到了核心隐瞒点,与真实被冤枉时的激动区别在于「细节点上能接住追问」",
+      "advice": "关注反常点,后续单独追问,看细节是否能接上"
     }
   ],
   "usage_notes": {
     "scoring": "weight × severity → 综合强度(0-5); 同一类别累计 ≥ 3 触发风险预警",
     "context_required": "单一信号不构成结论,需 3+ 同类信号 + 跨场景一致性",
-    "limitation": "本库为基线 v0.1,Phase 0 后续 T1 会持续扩到 50+ 条并补充 voice/video 字段"
+    "limitation": "本库为 v0.2(2026-09-09 扩 5 条,共 25 条),Phase 0 后续 T1 会持续扩到 50+ 并补充 voice/video 字段 + 收敛 severity 到 1-3 档"
   },
   "fallback_used": false,
-  "generated_at": "2026-08-28T03:50:00",
-  "item_count": 20
+  "generated_at": "2026-09-09T03:50:00",
+  "item_count": 25
 }
