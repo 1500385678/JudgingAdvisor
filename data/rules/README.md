@@ -25,7 +25,7 @@
 
 > **附加工具文件**:`persona_frameworks.json` / `signal_rules.json` / `career_profiles.json` / `risk_flags.json` / `cases.json` / `bot_intents.json` 不在 `md_to_json.py` 自动生成的 10 分类内,
 > 是 Phase 0 手工维护的"多框架 + 行为信号 + 职业画像 + 风险信号 + 案例 + 飞书 Bot 路由"基线,结构对齐下方 Schema。
-> `signal_rules.json` 是 Phase 0 第 3 项基线版(v0.1, 20 条),2026-09-09 扩到 v0.2 共 25 条(攻击/控制/自恋/撒谎 各补 1-2 条),2026-09-11 扩到 v0.3 共 30 条(焦虑 +2 / 操纵_PUA +1 / 回避 +1 / 压力 +1, sig_026-sig_030, severity 全部对齐 SCHEMA 1-3 档),后续 T1 会扩到 50+。
+> `signal_rules.json` 是 Phase 0 第 3 项基线版(v0.1, 20 条),2026-09-09 扩到 v0.2 共 25 条(攻击/控制/自恋/撒谎 各补 1-2 条),2026-09-11 扩到 v0.3 共 30 条(焦虑 +2 / 操纵_PUA +1 / 回避 +1 / 压力 +1, sig_026-sig_030, severity 全部对齐 SCHEMA 1-3 档),**2026-09-12 升 v0.3.1 · 收敛 6 条历史信号 severity(sev=4-5 → 1-3 · sig_007/008 控制 · sig_011/012 操纵_PUA · sig_013/014 自恋_NPD)· 全部 30 条对齐 SCHEMA 1-3 档 · 9 类分布更均衡**;后续 T1 会扩到 50+(v0.5)。
 > `career_profiles.json` 是 Phase 0 第 4 项基线版(v0.1, 5 岗位),后续 T1 会扩到 20+。
 > `risk_flags.json` 是 Phase 0 第 5 项基线版(v0.1, 15 条 / 8 类),后续 T1 会扩到 50+。
 > `cases.json` 是 Phase 0 第 6 项基线版(v0.1, 5 场景各 1 例),后续 T1 会扩到 20-30 条。
